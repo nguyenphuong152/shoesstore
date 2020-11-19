@@ -9,11 +9,9 @@ class TypeAccountModel extends Model
 {
     use HasFactory;
     protected $table = "type_accounts";
+    public $timestamps = false;
 
     protected $fillable = [
-        'id',
-        'created_at',
-        'updated_at',
         'name',
     ];
 }
