@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('account_id');
             $table->foreign('account_id')->references('id')->on('accounts');
             $table->string('address');
-            $table->float('totalPrices');
+            $table->float('totalAmount');
             $table->boolean('status');
         });
     }
