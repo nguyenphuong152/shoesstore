@@ -1,0 +1,41 @@
+<template>
+  <div class="app">
+    <v-main>
+      <v-col fluid class="d-flex align-center">
+        <v-row>
+          <Banner />
+        </v-row>
+        <v-row>
+          <a class="slogan">Find your ideal style here.</a>
+          <v-container>
+            <Collection />
+          </v-container>
+        </v-row>
+      </v-col>
+      <!-- <a class="slogan-2">Best Sellers</a>
+      <BestSeller />
+      <a class="slogan-3">TRUSTED PARTNERS</a>
+      <Partner /> -->
+    </v-main>
+  </div>
+</template>
+
+<script>
+import Collection from "../components/Collection";
+import Banner from "../components/Banner";
+// import BestSeller from "../components/BestSeller";
+// import Partner from "../components/Partner";
+
+export default {
+  components: {
+    Banner,
+    Collection,
+    // BestSeller,
+    // Partner,
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
