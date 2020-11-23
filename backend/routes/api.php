@@ -22,6 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::post('type_accounts', [TypeAccountController::class, 'addTypeAccount']);
 // Route::put('type_accounts/{id}', [TypeAccountController::class, 'updateTypeAccount']);
 // Route::delete('type_accounts/{id}', [TypeAccountController::class, 'deleteTypeAccount']);
-Route::apiResource('type_accounts', TypeAccount\TypeAccount::class);
+Route::apiResource('type_accounts', TypeAccountController::class);
 
-Route::get('accounts', [AccountController::class, 'accounts']);
+Route::apiResource('accounts', AccountController::class);

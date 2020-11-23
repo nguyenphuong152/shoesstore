@@ -14,7 +14,7 @@ class AccountModel extends Model
         'name',
         'email',
         'phone',
-        'idTypeAccount',
+        'type_account',
         'password',
     ];
 }
