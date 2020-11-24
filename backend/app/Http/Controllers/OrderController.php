@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\OrderModel;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
@@ -13,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(OrderModel::get(), 200);
     }
 
     /**
@@ -34,7 +37,19 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'id_account' => 'required',
+            'address' => 'required',
+            'total_amount' => 'required',
+            'status' => 'required',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails())
+        {
+            return response()->json($validator->errors(), 400);
+        }
+        $order = OrderModel::create($request->all());
+        return response()->json($order, 201);
     }
 
     /**
@@ -45,7 +60,12 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = OrderModel::find($id);
+        if (is_null($order))
+        {
+            return response()->json(["message" => "ID Not Found"], 404);
+        }
+        return response()->json($order, 200);
     }
 
     /**
@@ -68,7 +88,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = OrderModel::find($id);
+        if (is_null($order))
+        {
+            return response()->json(["message" => "ID Not Found"], 404);
+        }
+        $order->update($request->all());
+        return response()->json($order, 200);
     }
 
     /**
@@ -79,6 +105,12 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = OrderModel::find($id);
+        if (is_null($order))
+        {
+            return response()->json(["message" => "ID Not Found"], 404);
+        }
+        $order->delete();
+        return response()->json(null, 204);
     }
 }

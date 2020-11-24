@@ -16,10 +16,10 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('model_id');
-            $table->foreign('model_id')->references('id')->on('models');
-            $table->unsignedBigInteger('brand_id');
-            $table->foreign('brand_id')->references('id')->on('brands');
+            $table->unsignedBigInteger('id_model');
+            $table->foreign('id_model')->references('id')->on('models');
+            $table->unsignedBigInteger('id_brand');
+            $table->foreign('id_brand')->references('id')->on('brands');
             $table->string('description');
         });
     }

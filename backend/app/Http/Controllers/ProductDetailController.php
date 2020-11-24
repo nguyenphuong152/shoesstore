@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\ProductDetailModel;
+use Illuminate\Support\Facades\Validator;
 
 class ProductDetailController extends Controller
 {
@@ -13,7 +16,7 @@ class ProductDetailController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(ProductDetailModel::get(), 200);
     }
 
     /**
@@ -34,7 +37,21 @@ class ProductDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'id_product' => 'required',
+            'cost' => 'required',
+            'price' => 'required',
+            'id_color' => 'required',
+            'id_size' => 'required',
+            'id_product_cata' => 'required',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails())
+        {
+            return response()->json($validator->errors(), 400);
+        }
+        $product_detail = ProductDetailModel::create($request->all());
+        return response()->json($product_detail, 201);
     }
 
     /**
@@ -45,7 +62,12 @@ class ProductDetailController extends Controller
      */
     public function show($id)
     {
-        //
+        $product_detail = ProductDetailModel::find($id);
+        if (is_null($product_detail))
+        {
+            return response()->json(["message" => "ID Not Found"], 404);
+        }
+        return response()->json($product_detail, 200);
     }
 
     /**
@@ -68,7 +90,13 @@ class ProductDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product_detail = ProductDetailModel::find($id);
+        if (is_null($product_detail))
+        {
+            return response()->json(["message" => "ID Not Found"], 404);
+        }
+        $product_detail->update($request->all());
+        return response()->json($product_detail, 200);
     }
 
     /**
@@ -79,6 +107,12 @@ class ProductDetailController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product_detail = ProductDetailModel::find($id);
+        if (is_null($product_detail))
+        {
+            return response()->json(["message" => "ID Not Found"], 404);
+        }
+        $product_detail->delete();
+        return response()->json(null, 204);
     }
 }

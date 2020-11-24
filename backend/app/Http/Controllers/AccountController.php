@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\AccountModel;
 use Illuminate\Support\Facades\Validator;
 
@@ -41,7 +41,7 @@ class AccountController extends Controller
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
-            'type_account' => 'required',
+            'id_type_account' => 'required',
             'password' => 'required'
         ];
         $validator = Validator::make($request->all(), $rules);
@@ -106,7 +106,7 @@ class AccountController extends Controller
      */
     public function destroy($id)
     {
-        $account = TypeAccountModel::find($id);
+        $account = AccountModel::find($id);
         if (is_null($account))
         {
             return response()->json(["message" => "ID Not Found"], 404);
