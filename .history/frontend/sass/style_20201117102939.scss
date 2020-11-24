@@ -1,0 +1,33 @@
+$font-primary: 'Montserrat',Arial, sans-serif;
+$font-secondary: 'Rokkitt', Georgia, serif;
+
+$brand-black: #000;
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+
+#logo {
+  padding-top: 20px;
+  font-size: 34px;
+		margin: 0;
+		padding: 0;
+    font-weight: 700;
+  font-family: $font-primary;
+	color: lighten($brand-black,35%);
+}
+
