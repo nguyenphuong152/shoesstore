@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AccountModel extends Model
+class ProductCatalogModel extends Model
 {
     use HasFactory;
-    protected $table = "accounts";
+
+    protected $table = "product_catalogs";
 
     protected $fillable = [
         'name',
-        'email',
-        'phone',
-        'id_type_account',
-        'password'
+        'id_gender',
     ];
 }

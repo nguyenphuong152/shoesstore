@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AccountModel extends Model
+class OrderModel extends Model
 {
     use HasFactory;
-    protected $table = "accounts";
+
+    protected $table = "orders";
 
     protected $fillable = [
-        'name',
-        'email',
-        'phone',
-        'id_type_account',
-        'password'
+        'id_account',
+        'address',
+        'total_amount',
+        'status',
     ];
 }

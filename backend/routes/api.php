@@ -25,3 +25,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('type_accounts', TypeAccountController::class);
 
 Route::apiResource('accounts', AccountController::class);
+
+Route::apiResource('sizes', SizeController::class);
+
+Route::apiResource('colors', ColorController::class);
+
+Route::apiResource('genders', GenderController::class);
+
+Route::apiResource('models', ModelController::class);
+
+Route::apiResource('brands', BrandController::class);
+
+Route::apiResource('product_catalogs', ProductCatalogController::class);
+
+Route::apiResource('products', ProductController::class);
+
+Route::apiResource('product_details', ProductDetailController::class);
+
+Route::apiResource('orders', OrderController::class);
+
+Route::apiResource('order_details', OrderDetailController::class);

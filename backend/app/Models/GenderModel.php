@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AccountModel extends Model
+class GenderModel extends Model
 {
     use HasFactory;
-    protected $table = "accounts";
+
+    protected $table = "genders";
 
     protected $fillable = [
-        'name',
-        'email',
-        'phone',
-        'id_type_account',
-        'password'
+        'name'
     ];
 }

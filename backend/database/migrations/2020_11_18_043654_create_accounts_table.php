@@ -18,8 +18,8 @@ class CreateAccountsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->Integer('phone')->unique();
-            $table->unsignedBigInteger('type_account');
-            $table->foreign('type_account')->references('id')->on('type_accounts');
+            $table->unsignedBigInteger('id_type_account');
+            $table->foreign('id_type_account')->references('id')->on('type_accounts');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
