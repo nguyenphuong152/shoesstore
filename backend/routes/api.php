@@ -24,8 +24,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::delete('type_accounts/{id}', [TypeAccountController::class, 'deleteTypeAccount']);
 
 Route::apiResources([
-    'type_accounts' => TypeAccountController::class,
-    'accounts' => AccountController::class,
+    'roles' => RoleController::class,
+    'users' => UserController::class,
     'sizes' => SizeController::class,
     'colors' => ColorController::class,
     'genders' => GenderController::class,
