@@ -39,8 +39,8 @@ class ProductController extends Controller
     {
         $rules = [
             'name' => 'required',
-            'id_brand' => 'required',
-            'id_model' => 'required',
+            'brand_id' => 'required',
+            'model_id' => 'required',
             'description' => 'required',
         ];
         $validator = Validator::make($request->all(), $rules);

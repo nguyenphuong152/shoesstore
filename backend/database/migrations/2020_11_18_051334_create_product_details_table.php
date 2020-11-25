@@ -15,16 +15,16 @@ class CreateProductDetailsTable extends Migration
     {
         Schema::create('product_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_product');
-            $table->foreign('id_product')->references('id')->on('products');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->float('price');
             $table->float('cost');
-            $table->unsignedBigInteger('id_color');
-            $table->foreign('id_color')->references('id')->on('colors');
-            $table->unsignedBigInteger('id_size');
-            $table->foreign('id_size')->references('id')->on('sizes');
-            $table->unsignedBigInteger('id_product_cata');
-            $table->foreign('id_product_cata')->references('id')->on('product_catalogs');
+            $table->unsignedBigInteger('color_id');
+            $table->foreign('color_id')->references('id')->on('colors');
+            $table->unsignedBigInteger('size_id');
+            $table->foreign('size_id')->references('id')->on('sizes');
+            $table->unsignedBigInteger('product_cata_id');
+            $table->foreign('product_cata_id')->references('id')->on('product_catalogs');
         });
     }
 

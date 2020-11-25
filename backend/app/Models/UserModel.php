@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TypeAccountModel extends Model
+class UserModel extends Model
 {
     use HasFactory;
-    protected $table = "type_accounts";
-    public $timestamps = false;
+    protected $table = "users";
 
     protected $fillable = [
-        'name'
+        'name',
+        'email',
+        'phone',
+        'role_id',
+        'password'
     ];
 }

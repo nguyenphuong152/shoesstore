@@ -39,7 +39,7 @@ class ProductCatalogController extends Controller
     {
         $rules = [
             'name' => 'required',
-            'id_gender' => 'required',
+            'gender_id' => 'required',
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails())

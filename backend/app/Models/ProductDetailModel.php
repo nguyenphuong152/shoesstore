@@ -12,11 +12,11 @@ class ProductDetailModel extends Model
     protected $table = "product_details";
 
     protected $fillable = [
-        'id_product',
+        'product_id',
         'cost', //gia goc
         'price', //gia ban
-        'id_color',
-        'id_size',
-        'id_product_cata',
+        'color_id',
+        'size_id',
+        'product_cata_id',
     ];
 }

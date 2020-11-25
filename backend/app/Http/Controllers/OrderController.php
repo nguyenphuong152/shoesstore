@@ -38,7 +38,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'id_account' => 'required',
+            'user_id' => 'required',
             'address' => 'required',
             'total_amount' => 'required',
             'status' => 'required',

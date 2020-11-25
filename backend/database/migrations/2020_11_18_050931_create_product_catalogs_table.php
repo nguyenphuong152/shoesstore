@@ -16,8 +16,8 @@ class CreateProductCatalogsTable extends Migration
         Schema::create('product_catalogs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('id_gender');
-            $table->foreign('id_gender')->references('id')->on('genders');
+            $table->unsignedBigInteger('gender_id');
+            $table->foreign('gender_id')->references('id')->on('genders');
         });
     }
 

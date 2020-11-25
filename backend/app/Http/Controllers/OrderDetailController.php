@@ -38,8 +38,8 @@ class OrderDetailController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'id_product' => 'required',
-            'id_order' => 'required',
+            'order_id' => 'required',
+            'product_id' => 'required',
             'number' => 'required',
         ];
         $validator = Validator::make($request->all(), $rules);

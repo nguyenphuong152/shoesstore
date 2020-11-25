@@ -13,6 +13,6 @@ class ProductCatalogModel extends Model
 
     protected $fillable = [
         'name',
-        'id_gender',
+        'gender_id',
     ];
 }

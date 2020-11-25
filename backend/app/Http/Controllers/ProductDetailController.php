@@ -38,12 +38,12 @@ class ProductDetailController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'id_product' => 'required',
+            'product_id' => 'required',
             'cost' => 'required',
             'price' => 'required',
-            'id_color' => 'required',
-            'id_size' => 'required',
-            'id_product_cata' => 'required',
+            'color_id' => 'required',
+            'size_id' => 'required',
+            'product_cata_id' => 'required',
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails())

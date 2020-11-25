@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        DB::table('type_accounts')->insert([
+        DB::table('roles')->insert([
             [
                 'name' => 'admin',
             ],
@@ -26,12 +26,12 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
-        DB::table('accounts')->insert([
+        DB::table('users')->insert([
             [
                 'name' => 'name admin',
                 'email' => 'admin@gmail.com',
                 'phone' => '0909090909',
-                'id_type_account' => 1,
+                'role_id' => 1,
                 'password' => Hash::make('password'),
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'customer 1',
                 'email' => 'cus1@gmail.com',
                 'phone' => '0909090901',
-                'id_type_account' => 2,
+                'role_id' => 2,
                 'password' => Hash::make('password'),
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'customer 2',
                 'email' => 'cus2@gmail.com',
                 'phone' => '0909090902',
-                'id_type_account' => 2,
+                'role_id' => 2,
                 'password' => Hash::make('password'),
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
                 'name' => Str::random(10),
                 'email' => Str::random(10).'@gmail.com',
                 'phone' => '0909090903',
-                'id_type_account' => 2,
+                'role_id' => 2,
                 'password' => Hash::make('password'),
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
                 'name' => Str::random(10),
                 'email' => Str::random(10).'@gmail.com',
                 'phone' => '0909090904',
-                'id_type_account' => 2,
+                'role_id' => 2,
                 'password' => Hash::make('password'),
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
@@ -140,20 +140,20 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->insert([
             [
                 'name'=> 'giay 1',
-                'id_brand' => 1,
-                'id_model' => 1,
+                'brand_id' => 1,
+                'model_id' => 1,
                 'description' => 'des',
             ],
             [
                 'name'=> 'giay 2',
-                'id_brand' => 2,
-                'id_model' => 2,
+                'brand_id' => 2,
+                'model_id' => 2,
                 'description' => 'des',
             ],
             [
                 'name'=> 'giay 3',
-                'id_brand' => 3,
-                'id_model' => 1,
+                'brand_id' => 3,
+                'model_id' => 1,
                 'description' => 'des',
             ],
         ]);
@@ -161,70 +161,70 @@ class DatabaseSeeder extends Seeder
         DB::table('product_catalogs')->insert([
             [
                 'name' => 'Catalog 1',
-                'id_gender' => 1,
+                'gender_id' => 1,
             ],
             [
                 'name' => 'Catalog 2',
-                'id_gender' => 1,
+                'gender_id' => 1,
             ],
             [
                 'name' => 'Catalog 3',
-                'id_gender' => 2,
+                'gender_id' => 2,
             ],
         ]);
 
         DB::table('product_details')->insert([
             [
-                'id_product' => 1,
+                'product_id' => 1,
                 'cost' => 200,
                 'price' => 300,
-                'id_color' => 1,
-                'id_size' => 2,
-                'id_product_cata' => 1,
+                'color_id' => 1,
+                'size_id' => 2,
+                'product_cata_id' => 1,
             ],
             [
-                'id_product' => 1,
+                'product_id' => 1,
                 'cost' => 200,
                 'price' => 320,
-                'id_color' => 2,
-                'id_size' => 3,
-                'id_product_cata' => 1,
+                'color_id' => 2,
+                'size_id' => 3,
+                'product_cata_id' => 1,
             ],
             [
-                'id_product' => 2,
+                'product_id' => 2,
                 'cost' => 200,
                 'price' => 300,
-                'id_color' => 1,
-                'id_size' => 2,
-                'id_product_cata' => 2,
+                'color_id' => 1,
+                'size_id' => 2,
+                'product_cata_id' => 2,
             ],
             [
-                'id_product' => 2,
+                'product_id' => 2,
                 'cost' => 200,
                 'price' => 300,
-                'id_color' => 1,
-                'id_size' => 2,
-                'id_product_cata' => 2,
+                'color_id' => 1,
+                'size_id' => 2,
+                'product_cata_id' => 2,
             ],
             [
-                'id_product' => 3,
+                'product_id' => 3,
                 'cost' => 200,
                 'price' => 300,
-                'id_color' => 1,
-                'id_size' => 2,
-                'id_product_cata' => 3,
+                'color_id' => 1,
+                'size_id' => 2,
+                'product_cata_id' => 3,
             ],
         ]);
 
         DB::table('orders')->insert([
             [
-                'id_account' => 2,
+                'user_id' => 2,
                 'address' => Str::random(10),
                 // 'total_amount' => 500,
                 'status' => true,
             ],
             [
-                'id_account' => 3,
+                'user_id' => 3,
                 'address' => Str::random(10),
                 // 'total_amount' => 300,
                 'status' => true,
@@ -233,18 +233,18 @@ class DatabaseSeeder extends Seeder
 
         DB::table('order_details')->insert([
             [
-                'id_product_detail' => 1,
-                'id_order' => 1,
+                'order_id' => 1,
+                'product_detail_id' => 1,
                 'number' => 2,
             ],
             [
-                'id_product_detail' => 2,
-                'id_order' => 1,
+                'order_id' => 1,
+                'product_detail_id' => 2,
                 'number' => 1,
             ],
             [
-                'id_product_detail' => 3,
-                'id_order' => 2,
+                'order_id' => 2,
+                'product_detail_id' => 3,
                 'number' => 2,
             ],
         ]);

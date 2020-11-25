@@ -15,8 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_account');
-            $table->foreign('id_account')->references('id')->on('accounts');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('address');
             $table->float('total_amount')->nullable();
             $table->boolean('status');

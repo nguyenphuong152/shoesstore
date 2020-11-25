@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\AccountModel;
+use App\Models\UserModel;
 use Illuminate\Support\Facades\Validator;
 
-class AccountController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return response()->json(AccountModel::get(), 200);
+        return response()->json(UserModel::get(), 200);
     }
 
     /**
@@ -41,7 +41,7 @@ class AccountController extends Controller
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
-            'id_type_account' => 'required',
+            'user_id' => 'required',
             'password' => 'required'
         ];
         $validator = Validator::make($request->all(), $rules);
@@ -49,8 +49,8 @@ class AccountController extends Controller
         {
             return response()->json($validator->errors(), 400);
         }
-        $account = AccountModel::create($request->all());
-        return response()->json($account, 201);
+        $user = UserModel::create($request->all());
+        return response()->json($user, 201);
     }
 
     /**
@@ -61,12 +61,12 @@ class AccountController extends Controller
      */
     public function show($id)
     {
-        $account = AccountModel::find($id);
-        if (is_null($account))
+        $user = UserModel::find($id);
+        if (is_null($user))
         {
             return response()->json(["message" => "ID Not Found"], 404);
         }
-        return response()->json($account, 200);
+        return response()->json($user, 200);
     }
 
     /**
@@ -89,13 +89,13 @@ class AccountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $account = AccountModel::find($id);
-        if (is_null($account))
+        $user = UserModel::find($id);
+        if (is_null($user))
         {
             return response()->json(["message" => "ID Not Found"], 404);
         }
-        $account->update($request->all());
-        return response()->json($account, 200);
+        $user->update($request->all());
+        return response()->json($user, 200);
     }
 
     /**
@@ -106,12 +106,12 @@ class AccountController extends Controller
      */
     public function destroy($id)
     {
-        $account = AccountModel::find($id);
-        if (is_null($account))
+        $user = UserModel::find($id);
+        if (is_null($user))
         {
             return response()->json(["message" => "ID Not Found"], 404);
         }
-        $account->delete();
+        $user->delete();
         return response()->json(null, 204);
     }
 }
