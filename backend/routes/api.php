@@ -1,28 +1,29 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('type_accounts', [TypeAccountController::class, 'typeAccounts']);
-// Route::get('type_accounts/{id}', [TypeAccountController::class, 'typeAccountById']);
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+
+Route::group(['middleware' => ['auth:sanctum']], function(){
+    Route::get('order/{user_id}', [OrderController::class, 'orderByUser']);
+    Route::get('order_detail/{order_id}', [OrderDetailController::class, 'detailByOrder']);
+    Route::post('logout', [AuthController::class, 'logout']);
+});
+
 // Route::post('type_accounts', [TypeAccountController::class, 'addTypeAccount']);
 // Route::put('type_accounts/{id}', [TypeAccountController::class, 'updateTypeAccount']);
 // Route::delete('type_accounts/{id}', [TypeAccountController::class, 'deleteTypeAccount']);
 
+//middleware isAdmin
 Route::apiResources([
     'roles' => RoleController::class,
     'users' => UserController::class,

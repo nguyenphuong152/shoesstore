@@ -113,4 +113,14 @@ class OrderController extends Controller
         $order->delete();
         return response()->json(null, 204);
     }
+
+    public function orderByUser($user_id)
+    {
+        $order = OrderModel::where('user_id', $user_id)->get();
+        // if (is_null($order))
+        // {
+        //     return response()->json(["message" => "User does not have order"], 404);
+        // }
+        return response()->json($order, 200);
+    }
 }

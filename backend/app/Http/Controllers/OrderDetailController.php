@@ -112,4 +112,10 @@ class OrderDetailController extends Controller
         $order_detail->delete();
         return response()->json(null, 204);
     }
+
+    public function detailByOrder($order_id)
+    {
+        $order_detail = OrderDetailModel::where('order_id', $order_id)->get();
+        return response()->json($order_detail, 200);
+    }
 }
