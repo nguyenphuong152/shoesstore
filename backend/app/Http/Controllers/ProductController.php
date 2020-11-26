@@ -37,6 +37,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('admin');
         $rules = [
             'name' => 'required',
             'brand_id' => 'required',
@@ -88,6 +89,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('admin');
         $product = ProductModel::find($id);
         if (is_null($product))
         {
@@ -105,6 +107,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
         $product = ProductModel::find($id);
         if (is_null($product))
         {

@@ -37,6 +37,7 @@ class ProductDetailController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('admin');
         $rules = [
             'product_id' => 'required',
             'cost' => 'required',
@@ -90,6 +91,7 @@ class ProductDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('admin');
         $product_detail = ProductDetailModel::find($id);
         if (is_null($product_detail))
         {
@@ -107,6 +109,7 @@ class ProductDetailController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
         $product_detail = ProductDetailModel::find($id);
         if (is_null($product_detail))
         {

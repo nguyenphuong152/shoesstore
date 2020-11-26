@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class RoleModel extends Model
 {
-    use HasFactory;
     protected $table = "roles";
-    public $timestamps = false;
 
     protected $fillable = [
         'name'
     ];
+
+    public function permissions()
+    {
+        return $this->belongsToMany(PermissionModel::class, 'role_permission', 'role_id', 'permission_id');
+    }
 }

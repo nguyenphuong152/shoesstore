@@ -26,22 +26,44 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
+        DB::table('permissions')->insert([
+            [
+                'name' => 'admin',
+                'title' => 'admin can manages all shop',
+            ],
+            [
+                'name' => 'crud-order',
+                'title' => 'only customer can crud their order',
+            ],
+        ]);
+
+        DB::table('role_permission')->insert([
+            [
+                'role_id' => 1,
+                'permission_id' => 1,
+            ],
+            [
+                'role_id' => 2,
+                'permission_id' => 2,
+            ],
+        ]);
+
         DB::table('users')->insert([
             [
                 'name' => 'name admin',
-                'email' => 'admin@gmail.com',
+                'email' => 'a@gm.com',
                 'phone' => '0909090909',
                 'role_id' => 1,
-                'password' => Hash::make('password'),
+                'password' => Hash::make('a'),
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
             ],
             [
                 'name' => 'customer 1',
-                'email' => 'cus1@gmail.com',
+                'email' => 'cus1@gm.com',
                 'phone' => '0909090901',
                 'role_id' => 2,
-                'password' => Hash::make('password'),
+                'password' => Hash::make('1'),
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
             ],

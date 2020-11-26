@@ -16,6 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin');
         return response()->json(OrderModel::get(), 200);
     }
 
@@ -37,6 +38,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('crud-order');
         $rules = [
             'user_id' => 'required',
             'address' => 'required',
@@ -59,8 +61,12 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
         $order = OrderModel::find($id);
+
+        //only customer can view their order
+        $this->authorize($order, 'view');
+        
         if (is_null($order))
         {
             return response()->json(["message" => "ID Not Found"], 404);
@@ -88,6 +94,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('crud-order');
         $order = OrderModel::find($id);
         if (is_null($order))
         {
@@ -105,6 +112,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('crud-order');
         $order = OrderModel::find($id);
         if (is_null($order))
         {
@@ -116,6 +124,7 @@ class OrderController extends Controller
 
     public function orderByUser($user_id)
     {
+        $this->authorize('crud-order');
         $order = OrderModel::where('user_id', $user_id)->get();
         // if (is_null($order))
         // {

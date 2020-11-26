@@ -37,6 +37,7 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('admin');
         $rules = [
             'name' => 'required',
         ];
@@ -85,6 +86,7 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('admin');
         $brand = BrandModel::find($id);
         if (is_null($brand))
         {
@@ -102,6 +104,7 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
         $brand = BrandModel::find($id);
         if (is_null($brand))
         {

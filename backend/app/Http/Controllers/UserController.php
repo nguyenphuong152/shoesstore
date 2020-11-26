@@ -16,6 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin');
         return response()->json(UserModel::get(), 200);
     }
 
@@ -37,6 +38,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('admin');
         $rules = [
             'name' => 'required',
             'email' => 'required',
@@ -61,6 +63,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $this->authorize('admin');
         $user = UserModel::find($id);
         if (is_null($user))
         {
@@ -89,6 +92,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('admin');
         $user = UserModel::find($id);
         if (is_null($user))
         {
@@ -106,6 +110,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
         $user = UserModel::find($id);
         if (is_null($user))
         {

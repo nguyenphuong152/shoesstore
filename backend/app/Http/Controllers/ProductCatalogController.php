@@ -37,6 +37,7 @@ class ProductCatalogController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('admin');
         $rules = [
             'name' => 'required',
             'gender_id' => 'required',
@@ -86,6 +87,7 @@ class ProductCatalogController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('admin');
         $product_cata = ProductCatalogModel::find($id);
         if (is_null($product_cata))
         {
@@ -103,6 +105,7 @@ class ProductCatalogController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
         $product_cata = ProductCatalogModel::find($id);
         if (is_null($product_cata))
         {
