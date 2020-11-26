@@ -1,9 +1,6 @@
 <?php
 
-// use App\Http\Controllers\AuthController;
-// use App\Http\Controllers\OrderDetailController;
-// use App\Http\Controllers\OrderController;
-use App\Http\Middleware\CheckRole;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,11 +14,11 @@ Route::post('login', [AuthController::class, 'login']);
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('logout', [AuthController::class, 'logout']);
 
-    Route::get('order/{user_id}', [OrderController::class, 'orderByUser']);
-    Route::get('order_detail/{order_id}', [OrderDetailController::class, 'detailByOrder']);
-    
-    // Route::apiResource('brands', BrandController::class);
-    // ->middleware(CheckRole::class);
+    //with any route that had in Route::apiResouces
+    //use Absolute path like App\Http\Controllers\... to avoid err
+    Route::get('order/{user_id}', [App\Http\Controllers\OrderController::class, 'orderByUser']);
+    Route::get('order_detail/{order_id}', [App\Http\Controllers\OrderDetailController::class, 'detailByOrder']);
+
     Route::apiResources([
         'roles' => RoleController::class,
         'users' => UserController::class,
