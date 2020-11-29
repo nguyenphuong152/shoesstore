@@ -19,4 +19,9 @@ class ProductDetailModel extends Model
         'size_id',
         'product_cata_id',
     ];
+
+    public function product_detail_photos()
+    {
+        return $this->hasMany(ImageModel::class); 
+    }
 }

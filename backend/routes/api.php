@@ -1,12 +1,17 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('file/img/{file_name}', [FileController::class, 'getImgByName']);
+Route::get('file/img/product/{product_detail_id}', [FileController::class, 'getImgByProductDetailId']);
+Route::post('file/img', [FileController::class, 'uploadImg']);
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -34,7 +39,6 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
         'order_details' => OrderDetailController::class
     ]);
 });
-
 
 // Route::post('type_accounts', [TypeAccountController::class, 'addTypeAccount']);
 // Route::put('type_accounts/{id}', [TypeAccountController::class, 'updateTypeAccount']);
