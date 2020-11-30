@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductDetailModel extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
 
     protected $table = "product_details";
 

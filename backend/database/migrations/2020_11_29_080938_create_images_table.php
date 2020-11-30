@@ -16,6 +16,7 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('origin_name');
             $table->unsignedBigInteger('product_detail_id');
             $table->foreign('product_detail_id')->references('id')->on('product_details');
         });

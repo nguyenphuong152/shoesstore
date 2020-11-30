@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SizeModel extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
+    
     protected $table = "sizes";
 
     protected $fillable = [

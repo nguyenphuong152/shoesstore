@@ -13,6 +13,7 @@ class ImageModel extends Model
 
     protected $fillable = [
         'name',
+        'origin_name',
         'product_detail_id'
     ];
 

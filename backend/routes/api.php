@@ -2,17 +2,27 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileController;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//api for guest to read anything in shop
+Route::get('guest/brands', [App\Http\Controllers\BrandController::class, 'index']);
+Route::get('guest/colors', [App\Http\Controllers\ColorController::class, 'index']);
+Route::get('guest/genders', [App\Http\Controllers\GenderController::class, 'index']);
+Route::get('guest/models', [App\Http\Controllers\ModelController::class, 'index']);
+Route::get('guest/productcatalogs', [App\Http\Controllers\ProductCatalogController::class, 'index']);
+Route::get('guest/sizes', [App\Http\Controllers\SizeController::class, 'index']);
+
+Route::get('product/colors/{product_id}', [App\Http\Controllers\ProductDetailController::class, 'productColors']);
+Route::get('product/sizes/{product_id}', [App\Http\Controllers\ProductDetailController::class, 'productSizes']);
 
 Route::get('file/img/{file_name}', [FileController::class, 'getImgByName']);
 Route::get('file/img/product/{product_detail_id}', [FileController::class, 'getImgByProductDetailId']);
 Route::post('file/img', [FileController::class, 'uploadImg']);
+Route::delete('file/img/{id}' , [FileController::class, 'deleteImg']);
+Route::delete('file/img/product/{product_detail_id}' , [FileController::class, 'deleteImgByProductDetail']);
 
+//REGION REQUEST LOGIN TO ACCESS
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
@@ -40,8 +50,6 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     ]);
 });
 
-// Route::post('type_accounts', [TypeAccountController::class, 'addTypeAccount']);
-// Route::put('type_accounts/{id}', [TypeAccountController::class, 'updateTypeAccount']);
-// Route::delete('type_accounts/{id}', [TypeAccountController::class, 'deleteTypeAccount']);
-
-//middleware isAdmin
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });

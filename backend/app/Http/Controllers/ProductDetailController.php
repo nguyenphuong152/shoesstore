@@ -67,4 +67,16 @@ class ProductDetailController extends Controller
         $product_detail->delete();
         return response()->json(null, 204);
     }
+
+    public function productColors($product_id)
+    {
+        $colors = ProductDetailModel::where('product_id', $product_id)->join('colors', 'colors.id', '=', 'color_id')->select('product_details.color_id', 'colors.name')->get();
+        return response()->json($colors, 200);
+    }
+
+    public function productSizes($product_id)
+    {
+        $colors = ProductDetailModel::where('product_id', $product_id)->join('sizes', 'sizes.id', '=', 'size_id')->select('product_details.size_id', 'sizes.name')->get();
+        return response()->json($colors, 200);
+    }
 }

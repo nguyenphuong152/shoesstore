@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ColorModel extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
 
     protected $table = "colors";
 

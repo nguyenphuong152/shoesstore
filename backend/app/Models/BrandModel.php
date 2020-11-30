@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BrandModel extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
+
     protected $table = "brands";
 
     protected $fillable = [
