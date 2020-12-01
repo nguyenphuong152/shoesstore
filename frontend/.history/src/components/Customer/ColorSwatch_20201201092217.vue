@@ -1,0 +1,44 @@
+<template>
+  <v-row class="d-flex text-start justify-center">
+    <v-col>
+      <span class="admin">Please choose your color:</span>
+    </v-col>
+    <v-col>
+      <div>
+        <v-sheet color="white" elevation="1" height="100" width="100"></v-sheet>
+      </div>
+    </v-col>
+  </v-row>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      text: "",
+      colors: [
+        {
+          value: "red",
+        },
+        {
+          value: "green",
+        },
+        {
+          value: "blue",
+        },
+        {
+          value: "cyan",
+        },
+      ],
+    };
+  },
+  methods: {
+    alertColor: function() {
+      var el = document.getElementsByClassName("color");
+      alert(el);
+    },
+  },
+};
+</script>
+
+<style></style>
