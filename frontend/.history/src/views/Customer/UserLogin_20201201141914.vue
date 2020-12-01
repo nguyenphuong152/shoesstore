@@ -1,10 +1,10 @@
 <template>
   <div class="userlogin">
     <v-sheet color="grey lighten-3" height="150">
-      <v-container class="py-8 ">
-        <span class="title-normal">My Account</span>
+      <v-container py-8>
+        <a class="slogan-3">My Account</a>
         <br />
-        <span class="title-shoes">Home/My Account</span>
+        <a class="title-shoes">Home/My Account</a>
       </v-container>
     </v-sheet>
     <v-container nav>

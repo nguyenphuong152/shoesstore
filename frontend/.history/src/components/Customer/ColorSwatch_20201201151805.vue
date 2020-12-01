@@ -6,9 +6,9 @@
     <v-col>
       <v-row class="d-flex justify-space-around">
         <v-sheet
-          v-for="(col, i) in apiCol"
+          v-for="(col, i) in colors"
           :key="i"
-          v-bind="{ color: col.name }"
+          v-bind="{ color: col.value }"
           height="36"
           width="36"
           shaped
@@ -25,17 +25,19 @@
 </template>
 
 <script>
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(axios,VueAxios)
 export default {
-  mounted() {
-    this.axios
-      .get("https://mego-backend.herokuapp.com/api/guest/colors")
-      .then((response) => (this.apiCol = response.data.bpi))
-      .catch(error => console.log(error));
-     
+  mounted:{
+  axios
+  .get('https://mego-backend.herokuapp.com/api/guest/colors')
+  .then(response => (this.info = response.data.bpi))
   },
   data() {
     return {
-      apiCol: [],
+      apiCol : null,
       text: "",
       colors: [
         {
@@ -54,7 +56,7 @@ export default {
           value: "cyan",
           show: false,
         },
-        {
+          {
           value: "red",
           show: false,
         },
@@ -79,6 +81,7 @@ export default {
       col.show = true;
     },
   },
+  
 };
 </script>
 

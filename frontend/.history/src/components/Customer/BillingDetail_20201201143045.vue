@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation class="admin">
+  <v-form ref="form" v-model="valid" lazy-validation class="Admin">
     <v-text-field
       v-model="name"
       :counter="50"

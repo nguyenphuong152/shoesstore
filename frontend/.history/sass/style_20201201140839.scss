@@ -13,7 +13,7 @@ serif;
 $font-size-header: 34px;
 $font-size-default: 16px;
 $font-size-content: 21px;
-$font-size-slogan:48px;
+$slogan-font-size:48px;
 
 
 $brand-primary: #616161 !default;
@@ -53,7 +53,7 @@ $brand-bg-color: $brand-white;
 .nav {
   padding-left: 0px;
   a {
-    font-size: $font-size-content;
+    font-size: $content-font-size;
     color: lighten($brand-black,35%);
     font-family: $font-secondary;
     text-decoration: none;
@@ -74,56 +74,54 @@ $brand-bg-color: $brand-white;
 
 
 .slogan {
-  font-size: $font-size-slogan;
+  font-size: 50px;
   color: #2c3e50;
   font-family: $font-secondary;
   text-decoration: none;
 }
 
-.title-normal{
-  font-size: $font-size-header;
-  color: #2c3e50;
-  font-family: $font-primary;
-  text-decoration: none;
-}
-
 .title-collection{
   @extend .slogan;
-  font-size: $font-size-content;
+  font-size: 25px;
 }
 
+
+.slogan-3 {
+  @extend .slogan;
+  font-size: 35px;
+}
 
 .title-shoes {
   @extend .slogan;
-  font-size: $font-size-default;
+  font-size: 20px;
 }
 
 
 .footer-text {
   font-family:$font-primary;
-  font-size: $font-size-default;
+  font-size: 16px;
 }
 
 .admin {
   font-family: $font-primary;
-  font-size:$font-size-default;
+  font-size:16px;
 }
 
 .admin-nav {
   font-family: $font-primary !important;
-  font-size: $font-size-content !important;
+  font-size: 20px !important;
   color: white !important;
 }
 
 .product-detail--title{
   @extend .admin;
-  font-size: $font-size-content;
+  font-size: 30px;
   font-weight: 500;
 }
 
 .product-detail--price {
   @extend .product-detail--title;
   font-weight: 300;
-  font-size:$font-size-content;
+  font-size: 25px;
 }
 

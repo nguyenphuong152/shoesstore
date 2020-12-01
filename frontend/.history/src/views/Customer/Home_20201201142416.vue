@@ -4,15 +4,15 @@
       <div class="d-flex flex-column">
             <Banner />
       <v-container >
-        <span class="slogan">Find your ideal style here.</span>
+        <a class="slogan">Find your ideal style here.</a>
         <Collection />
       </v-container>
       <v-container mt-8>
-         <span class="slogan">Best Sellers</span>
+         <a class="slogan">Best Sellers</a>
         <BestSeller />
       </v-container>
       <v-container my-16>
-        <span class="slogan">Trusted Partners</span>
+        <a class="title">Trusted Partners</a>
         <Partner />
       </v-container>
       </div>

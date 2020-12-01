@@ -41,13 +41,10 @@
         <v-col>
           <v-sheet color="grey lighten-3">
             <v-container pa-8 text-start>
-              <strong class="admin">Your Order</strong>
-              <br>
-              <br>
+              <b class="slogan-3">Your Order</b>
               <totalProducts />
               <br />
               <v-divider></v-divider>
-              <br>
               <strong class="admin">Payment Method</strong>
               <payment />
               <v-divider></v-divider>

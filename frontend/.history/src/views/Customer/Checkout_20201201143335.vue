@@ -43,11 +43,9 @@
             <v-container pa-8 text-start>
               <strong class="admin">Your Order</strong>
               <br>
-              <br>
               <totalProducts />
               <br />
               <v-divider></v-divider>
-              <br>
               <strong class="admin">Payment Method</strong>
               <payment />
               <v-divider></v-divider>

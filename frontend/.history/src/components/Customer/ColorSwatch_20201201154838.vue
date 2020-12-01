@@ -12,10 +12,7 @@
           height="36"
           width="36"
           shaped
-          @click="
-            checkFalse();
-            checkTrue(col);
-          "
+          
         >
           <v-icon color="white" v-show="col.show">mdi-check</v-icon>
         </v-sheet>
@@ -29,9 +26,7 @@ export default {
   mounted() {
     this.axios
       .get("https://mego-backend.herokuapp.com/api/guest/colors")
-      .then((response) => (this.apiCol = response.data.bpi))
-      .catch(error => console.log(error));
-     
+      .then((response) => (this.apiCol = response.data.bpi));
   },
   data() {
     return {

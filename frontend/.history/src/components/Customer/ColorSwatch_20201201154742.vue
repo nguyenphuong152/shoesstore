@@ -29,9 +29,7 @@ export default {
   mounted() {
     this.axios
       .get("https://mego-backend.herokuapp.com/api/guest/colors")
-      .then((response) => (this.apiCol = response.data.bpi))
-      .catch(error => console.log(error));
-     
+      .then((response) => (this.apiCol = response.data.bpi));
   },
   data() {
     return {

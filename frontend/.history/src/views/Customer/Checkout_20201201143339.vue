@@ -47,7 +47,6 @@
               <totalProducts />
               <br />
               <v-divider></v-divider>
-              <br>
               <strong class="admin">Payment Method</strong>
               <payment />
               <v-divider></v-divider>

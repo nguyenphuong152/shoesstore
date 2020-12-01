@@ -7,7 +7,7 @@
         color="black"
         text
         rounded
-        class="my-2 admin"
+        class="my-2 footer-text"
       >
         {{ link }}
       </v-btn>

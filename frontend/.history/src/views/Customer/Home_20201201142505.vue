@@ -12,7 +12,7 @@
         <BestSeller />
       </v-container>
       <v-container my-16>
-        <span class="slogan">Trusted Partners</span>
+        <span class="title-normal">Trusted Partners</span>
         <Partner />
       </v-container>
       </div>
