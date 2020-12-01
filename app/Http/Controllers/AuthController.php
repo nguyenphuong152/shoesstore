@@ -75,8 +75,6 @@ class AuthController extends Controller
 
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('google')->user();
-
-        // $user->token;
+        return Socialite::driver('google')->user();
     }
 }

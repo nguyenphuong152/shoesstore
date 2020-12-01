@@ -31,8 +31,8 @@ return [
     ],
 
     'google' => [
-        'client_id' => env('GITHUB_CLIENT_ID'),
-        'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'http://your-callback-url',
+        'client_id' => env('231346323903-sbeltsl0bceb5p5ap415cvpesgtohmdg.apps.googleusercontent.com'),
+        'client_secret' => env('LoubT43tlzCkMPenq03qRo8H'),
+        'redirect' => 'https://mego-backend.herokuapp.com/login/google/callback',
     ],
 ];
