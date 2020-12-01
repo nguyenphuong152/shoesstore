@@ -6,6 +6,7 @@ $font-secondary: 'Rokkitt',
 Georgia,
 serif;
 
+<<<<<<< HEAD
 
 @import '~vuetify/src/styles/styles.sass';
 
@@ -15,6 +16,12 @@ $font-size-default: 16px;
 $font-size-content: 21px;
 $font-size-slogan:48px;
 
+=======
+// Overrides
+$grid-gutter-width: 20px !default;
+$border-radius-base: 4px !default;
+$padding-base-vertical: 14px !default;
+>>>>>>> e5b2ba6... design home but get sth wrong in router
 
 $brand-primary: #616161 !default;
 $brand-secondary: #88c8bc !default;
@@ -31,6 +38,7 @@ $brand-selection-color: #f9f6f0;
 $brand-overlay-color: #4c4a8a;
 $brand-bg-color: $brand-white;
 
+<<<<<<< HEAD
 .v-btn {
   text-transform:none !important;
 }
@@ -58,28 +66,74 @@ $brand-bg-color: $brand-white;
     font-family: $font-secondary;
     text-decoration: none;
     font-weight: 500;
+=======
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.item-nav {
+  padding-right: 20px;
+}
+
+
+.nav {
+  padding-left: 0px;
+  a {
+    font-size: 25px;
+    color: #2c3e50;
+    font-family: $font-secondary;
+    text-decoration: none;
+
+>>>>>>> e5b2ba6... design home but get sth wrong in router
     &.router-link-exact-active {
       color: #42b983;
     }
 
+<<<<<<< HEAD
+=======
+    @extend .item-nav;
+>>>>>>> e5b2ba6... design home but get sth wrong in router
   }
 }
 
 #logo {
   font-size: 40px;
+<<<<<<< HEAD
+=======
+  padding-top: 80px;
+  padding-left: 10px;
+>>>>>>> e5b2ba6... design home but get sth wrong in router
   font-weight: 700;
   font-family: $font-primary;
   color: lighten($brand-black, 35%);
 }
 
+<<<<<<< HEAD
 
 .slogan {
   font-size: $font-size-slogan;
+=======
+#searchbar {
+  padding-right: 10px;
+  padding-top: 50px;
+}
+
+#shopping-cart {
+  padding-left: 580px;
+}
+
+.slogan {
+  font-size: 50px;
+>>>>>>> e5b2ba6... design home but get sth wrong in router
   color: #2c3e50;
   font-family: $font-secondary;
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 .title-normal{
   font-size: $font-size-header;
   color: #2c3e50;
@@ -127,3 +181,49 @@ $brand-bg-color: $brand-white;
   font-size:$font-size-content;
 }
 
+=======
+#home-page{
+  margin-top: -150px;
+}
+
+#collection {
+  margin-top: 50px;
+  margin-left:80px;
+  margin-right:80px;
+  margin-bottom: 50px;
+}
+
+.title-collection{
+  @extend .slogan;
+  font-size: 25px;
+  padding-left: 160px;
+}
+
+.slogan-2 {
+  @extend .slogan;
+  margin-bottom: 50px;
+}
+
+.slogan-3 {
+  color: $brand-primary;
+  @extend .slogan-2;
+  font-size: 33px;
+}
+
+.title-shoes {
+  @extend .slogan;
+  padding-left: 120px;
+  font-size: 22px;
+}
+
+.showing-partner {
+  margin-top: 50px;
+  margin-left: 200px;
+  margin-bottom: 50px;
+}
+
+.footer-text {
+  font-family:$font-primary;
+  font-size: 16px;
+}
+>>>>>>> e5b2ba6... design home but get sth wrong in router
